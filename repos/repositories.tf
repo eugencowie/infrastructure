@@ -1,12 +1,3 @@
-locals {
-  repositories = {
-    "infrastructure" = {
-      description = ""
-      visibility  = "public"
-    }
-  }
-}
-
 resource "github_repository" "this" {
   for_each = local.repositories
 
