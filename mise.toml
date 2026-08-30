@@ -1,6 +1,27 @@
 [tools]
 pipx = "latest"
 "pipx:cruft" = "latest"
+terraform = "latest"
+
+[tasks."repos:init"]
+description = "Initialise repos state"
+dir = "repos"
+run = "terraform init"
+
+[tasks."repos:fmt"]
+description = "Format repos configuration"
+dir = "repos"
+run = "terraform fmt"
+
+[tasks."repos:plan"]
+description = "Plan repos changes"
+dir = "repos"
+run = "terraform plan"
+
+[tasks."repos:apply"]
+description = "Apply repos changes"
+dir = "repos"
+run = "terraform apply"
 
 [tasks."template:update"]
 description = "Update project with the latest changes from the template"
