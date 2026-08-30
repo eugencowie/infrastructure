@@ -2,12 +2,12 @@ locals {
   repositories = {
 
     "infrastructure" = {
-      description = ""
+      description = "Terraform configuration for my personal infrastructure."
       visibility  = "public"
     }
 
     "homelab" = {
-      description = ""
+      description = "Ansible playbooks for my self-hosted services."
       visibility  = "public"
     }
 
