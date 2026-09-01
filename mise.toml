@@ -23,6 +23,11 @@ description = "Apply repos changes"
 dir = "repos"
 run = "terraform apply"
 
+[tasks."repos:adopt"]
+description = "Adopt an existing repo"
+dir = "repos"
+run = "../scripts/adopt-repo.sh"
+
 [tasks."template:update"]
 description = "Update project with the latest changes from the template"
 run = "cruft update"

@@ -1,9 +1,3 @@
-import {
-  for_each = local.repositories
-  to       = github_issue_labels.this[each.key]
-  id       = each.key
-}
-
 resource "github_issue_labels" "this" {
   for_each   = local.repositories
   repository = github_repository.this[each.key].id
