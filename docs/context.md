@@ -1,10 +1,10 @@
 # Infrastructure
 
-Managing personal GitHub repositories as desired state.
+Terraform configuration for personal infrastructure.
 
 ## Language
 
-### Core concepts
+### Repos
 
 **Adoption**:
 Bringing a GitHub repository that already exists under desired-state management, by importing its current resources into Terraform state. A one-time migration, distinct from the desired state itself: adoption leaves no trace in configuration once complete.
