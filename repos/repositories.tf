@@ -7,7 +7,7 @@ locals {
 
     deepswe-extended = {
       visibility             = "public"
-      description            = ""
+      description            = "Combines the DeepSWE leaderboard with OpenRouter throughput data and SemiAnalysis subscription research to compare models by effective cost, speed, and bang for buck — including what a task \"really\" costs on a subscription."
       homepage_url           = "https://eugencowie.github.io/deepswe-extended/"
       merge_commit_title     = "PR_TITLE"
       merge_commit_message   = "PR_BODY"
