@@ -23,13 +23,9 @@ resource "github_repository_ruleset" "this" {
 
     dynamic "required_status_checks" {
       for_each = try([each.value.required_status_checks], [])
-
       content {
-        strict_required_status_checks_policy = true
-
         dynamic "required_check" {
           for_each = required_status_checks.value
-
           content {
             context        = required_check.value
             integration_id = 15368 # GitHub Actions
