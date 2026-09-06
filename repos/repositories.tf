@@ -5,12 +5,10 @@ locals {
     dotfiles       = { visibility = "public", description = "Nix configurations for my machines (NixOS, Darwin, WSL)." }
     templates      = { visibility = "public", description = "A mise-managed, agent-ready starting point for a new project, in any language. Preconfigured for Matt Pocock's skills." }
 
-    deepswe-extended = {
+    deepswe-enhanced = {
       visibility             = "public"
       description            = "Combines the DeepSWE leaderboard with OpenRouter throughput data and SemiAnalysis subscription research to compare models by effective cost, speed, and bang for buck."
-      homepage_url           = "https://eugencowie.github.io/deepswe-extended/"
-      merge_commit_title     = "PR_TITLE"
-      merge_commit_message   = "PR_BODY"
+      homepage_url           = "https://eugencowie.github.io/deepswe-enhanced/"
       required_status_checks = ["ready", "e2e"]
     }
   }
@@ -32,6 +30,4 @@ resource "github_repository" "this" {
   allow_squash_merge     = false
   allow_auto_merge       = true
   delete_branch_on_merge = true
-  merge_commit_title     = try(each.value.merge_commit_title, null)
-  merge_commit_message   = try(each.value.merge_commit_message, null)
 }
