@@ -8,7 +8,7 @@ locals {
     deepswe-enhanced = {
       visibility             = "public"
       description            = "Combines the DeepSWE leaderboard with OpenRouter throughput data and SemiAnalysis subscription research to compare models by effective cost, speed, and bang for buck."
-      homepage_url           = "https://eugencowie.github.io/deepswe-enhanced/"
+      homepage_url           = "https://deepswe.eugen.codes"
       required_status_checks = ["ready", "e2e"]
     }
   }
