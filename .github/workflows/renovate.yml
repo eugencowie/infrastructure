@@ -17,7 +17,7 @@ jobs:
     steps:
       - uses: renovatebot/github-action@37beffda261423addd537c33f2d126df7f6ffbab # v46.2.6
         with:
-          renovate-version: 44.66.1@sha256:37a6d42d519bcdfdc4c976bc0a4b12288ce2f082693c73d2e4aebd4ccea08aa7
+          renovate-version: 44.75.1@sha256:d0348ac3a8542743525a18bd48b343119286df1fe903d0a9df3696179dfc4306
           token: ${{ secrets.RENOVATE_TOKEN || github.token }}
         env:
           RENOVATE_REPOSITORIES: ${{ github.repository }}
