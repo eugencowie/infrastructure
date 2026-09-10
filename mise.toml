@@ -6,35 +6,11 @@ pipx = "latest"
 "pipx:cruft" = "latest"
 terraform = "latest"
 
-[tasks."repos:init"]
-description = "Initialise repos state"
-dir = "repos"
-run = "terraform init"
-
-[tasks."repos:fmt"]
-description = "Format repos configuration"
-dir = "repos"
-run = "terraform fmt"
-
-[tasks."repos:plan"]
-description = "Plan repos changes"
-dir = "repos"
-run = "terraform plan"
-
-[tasks."repos:apply"]
-description = "Apply repos changes"
-dir = "repos"
-run = "terraform apply"
-
-[tasks."repos:adopt"]
-description = "Adopt an existing repo"
-dir = "repos"
-run = "../scripts/adopt-repo.sh"
-
-[tasks."template:update"]
-description = "Update project with the latest changes from the template"
-run = "cruft update"
-
-[tasks."template:restore"]
-description = "Restore template-managed files"
-run = "cruft diff | git apply"
+[tasks]
+"repos:init" = { dir = "repos", run = "terraform init", description = "Initialise repos state" }
+"repos:fmt" = { dir = "repos", run = "terraform fmt", description = "Format repos configuration" }
+"repos:plan" = { dir = "repos", run = "terraform plan", description = "Plan repos changes" }
+"repos:apply" = { dir = "repos", run = "terraform apply", description = "Apply repos changes" }
+"repos:adopt" = { dir = "repos", run = "../scripts/adopt-repo.sh", description = "Adopt an existing repo" }
+"template:update" = { run = "cruft update", description = "Update project with the latest changes from the template" }
+"template:restore" = { run = "cruft diff | git apply", description = "Restore template-managed files" }
