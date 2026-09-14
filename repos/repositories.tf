@@ -1,12 +1,12 @@
 locals {
   repositories = {
-    infrastructure = { visibility = "public", description = "Terraform configuration for my personal infrastructure (GitHub)." }
-    homelab        = { visibility = "public", description = "Ansible playbooks for my self-hosted services." }
-    dotfiles       = { visibility = "public", description = "Nix configurations for my machines (NixOS, Darwin, WSL)." }
-    templates      = { visibility = "public", description = "A mise-managed, agent-ready starting point for a new project, in any language. Preconfigured for Matt Pocock's skills." }
+    infrastructure = { description = "Terraform configuration for my personal infrastructure (GitHub)." }
+    homelab        = { description = "Ansible playbooks for my self-hosted services." }
+    dotfiles       = { description = "Nix configurations for my machines (NixOS, Darwin, WSL)." }
+    templates      = { description = "A mise-managed, agent-ready starting point for a new project, in any language. Preconfigured for Matt Pocock's skills." }
+    portfolio      = { description = "My personal portfolio website." }
 
     deepswe-enhanced = {
-      visibility             = "public"
       description            = "Combines the DeepSWE leaderboard with OpenRouter throughput data and SemiAnalysis subscription research to compare models by effective cost, speed, and bang for buck."
       homepage_url           = "https://deepswe.eugen.codes"
       required_status_checks = ["ready", "e2e"]
@@ -20,7 +20,7 @@ resource "github_repository" "this" {
   name         = each.key
   description  = each.value.description
   homepage_url = try(each.value.homepage_url, null)
-  visibility   = each.value.visibility
+  visibility   = "public"
 
   has_issues   = true
   has_wiki     = true
