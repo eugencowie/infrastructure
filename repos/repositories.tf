@@ -4,7 +4,12 @@ locals {
     homelab        = { description = "Ansible playbooks for my self-hosted services." }
     dotfiles       = { description = "Nix configurations for my machines (NixOS, Darwin, WSL)." }
     templates      = { description = "A mise-managed, agent-ready starting point for a new project, in any language. Preconfigured for Matt Pocock's skills." }
-    portfolio      = { description = "My personal portfolio website." }
+
+    portfolio = {
+      description            = "My personal portfolio website."
+      homepage_url           = "https://eugen.codes"
+      required_status_checks = ["ci"]
+    }
 
     deepswe-enhanced = {
       description            = "Combines the DeepSWE leaderboard with OpenRouter throughput data and SemiAnalysis subscription research to compare models by effective cost, speed, and bang for buck."
