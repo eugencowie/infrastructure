@@ -14,7 +14,7 @@ locals {
     deepswe-enhanced = {
       description            = "Combines the DeepSWE leaderboard with OpenRouter throughput data and SemiAnalysis subscription research to compare models by effective cost, speed, and bang for buck."
       homepage_url           = "https://deepswe.eugen.codes"
-      required_status_checks = ["ci"]
+      required_status_checks = ["validate"]
     }
   }
 }
