@@ -8,7 +8,7 @@ locals {
     portfolio = {
       description            = "My personal portfolio website."
       homepage_url           = "https://eugen.codes"
-      required_status_checks = ["ci"]
+      required_status_checks = ["validate"]
     }
 
     deepswe-enhanced = {
