@@ -16,6 +16,12 @@ locals {
       homepage_url           = "https://deepswe.eugen.codes"
       required_status_checks = ["validate"]
     }
+
+    aptabase-rs = {
+      description            = "Rust SDK for Aptabase: Open Source, Privacy-First and Simple Analytics for Mobile, Desktop and Web Apps"
+      homepage_url           = "https://crates.io/crates/aptabase-rs"
+      required_status_checks = ["Check", "Check example"]
+    }
   }
 
   merge_methods = { for name, repo in local.repositories : name => try(repo.merge_method, "merge") }
