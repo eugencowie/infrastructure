@@ -18,7 +18,7 @@ resource "github_repository_ruleset" "this" {
     non_fast_forward = true
 
     pull_request {
-      allowed_merge_methods = ["merge"]
+      allowed_merge_methods = [local.merge_methods[each.key]]
     }
 
     dynamic "required_status_checks" {

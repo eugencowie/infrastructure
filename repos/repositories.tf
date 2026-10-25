@@ -1,7 +1,7 @@
 locals {
   repositories = {
     infrastructure = { description = "Terraform configuration for my personal infrastructure (GitHub)." }
-    homelab        = { description = "Ansible playbooks for my self-hosted services." }
+    homelab        = { description = "Ansible playbooks for my self-hosted services.", merge_method = "squash" }
     dotfiles       = { description = "Nix configurations for my machines (NixOS, Darwin, WSL)." }
     templates      = { description = "A mise-managed, agent-ready starting point for a new project, in any language. Preconfigured for Matt Pocock's skills." }
 
@@ -17,6 +17,8 @@ locals {
       required_status_checks = ["validate"]
     }
   }
+
+  merge_methods = { for name, repo in local.repositories : name => try(repo.merge_method, "merge") }
 }
 
 resource "github_repository" "this" {
@@ -31,8 +33,12 @@ resource "github_repository" "this" {
   has_wiki     = true
   has_projects = false
 
+  allow_merge_commit     = local.merge_methods[each.key] == "merge"
   allow_rebase_merge     = false
-  allow_squash_merge     = false
+  allow_squash_merge     = local.merge_methods[each.key] == "squash"
   allow_auto_merge       = true
   delete_branch_on_merge = true
+
+  squash_merge_commit_title   = local.merge_methods[each.key] == "squash" ? "PR_TITLE" : null
+  squash_merge_commit_message = local.merge_methods[each.key] == "squash" ? "PR_BODY" : null
 }
