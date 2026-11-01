@@ -40,5 +40,5 @@ resource "github_repository" "this" {
   delete_branch_on_merge = true
 
   squash_merge_commit_title   = local.merge_methods[each.key] == "squash" ? "PR_TITLE" : null
-  squash_merge_commit_message = local.merge_methods[each.key] == "squash" ? "PR_BODY" : null
+  squash_merge_commit_message = local.merge_methods[each.key] == "squash" ? "COMMIT_MESSAGES" : null
 }
