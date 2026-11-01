@@ -3,7 +3,7 @@ locals {
     infrastructure = { description = "Terraform configuration for my personal infrastructure (GitHub)." }
     homelab        = { description = "Ansible playbooks for my self-hosted services.", merge_method = "squash" }
     dotfiles       = { description = "Nix configurations for my machines (NixOS, Darwin, WSL)." }
-    templates      = { description = "A mise-managed, agent-ready starting point for a new project, in any language. Preconfigured for Matt Pocock's skills." }
+    templates      = { description = "A mise-managed, agent-ready starting point for a new project, in any language. Preconfigured for Matt Pocock's skills.", merge_method = "squash" }
 
     portfolio = {
       description            = "My personal portfolio website."
