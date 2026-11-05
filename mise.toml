@@ -1,5 +1,28 @@
 [tools]
+jactionlint = "latest"
+shellcheck = "latest"
 terraform = "latest"
+
+[tasks.lint]
+description = "Lint workflows, scripts and repos configuration"
+depends = ["lint:*"]
+
+[tasks."lint:actions"]
+description = "Lint GitHub workflows"
+run = "jactionlint"
+
+[tasks."lint:scripts"]
+description = "Lint shell scripts"
+run = "shellcheck scripts/*.sh"
+
+[tasks."lint:repos"]
+description = "Check repos formatting and validate its configuration"
+dir = "repos"
+run = [
+  "terraform fmt -check -diff",
+  "terraform init -backend=false -input=false -lockfile=readonly",
+  "terraform validate",
+]
 
 [tasks."repos:init"]
 description = "Initialise repos state"
