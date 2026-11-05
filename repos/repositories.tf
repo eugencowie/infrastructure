@@ -29,6 +29,8 @@ resource "github_repository" "this" {
   homepage_url = try(each.value.homepage_url, null)
   visibility   = "public"
 
+  archive_on_destroy = true
+
   has_issues   = true
   has_wiki     = true
   has_projects = false
