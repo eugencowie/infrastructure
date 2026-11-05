@@ -1,18 +1,8 @@
 # Agent Instructions
 
-## Agent skills
+## Domain Docs
 
-### Issue tracker
-
-Tickets live as local Markdown files in `docs/planning/`. See `docs/agents/issue-tracker.md`.
-
-### Triage labels
-
-Default canonical labels. See `docs/agents/triage-labels.md`.
-
-### Domain docs
-
-Single-context layout: `docs/context.md` and ADRs in `docs/architecture/`. See `docs/agents/domain.md`.
+See the glossary in [context.md](docs/context.md) and the ADRs in [architecture](docs/architecture/).
 
 ## Development environment
 
