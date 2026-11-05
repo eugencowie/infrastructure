@@ -1,9 +1,5 @@
 # Agent Instructions
 
-## Domain Docs
-
-See the glossary in [context.md](docs/context.md) and the ADRs in [architecture](docs/architecture/).
-
 ## Development Environment
 
 This project uses mise to manage the development environment.

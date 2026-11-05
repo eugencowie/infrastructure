@@ -6,7 +6,7 @@ Terraform configuration for my GitHub repositories: settings, the default branch
 
 - `repos/` - Terraform configuration for the repositories, with local state
 - `scripts/` - Helpers behind mise tasks
-- `docs/` - Glossary in `context.md` and ADRs in `architecture/`
+- `docs/` - ADRs in `architecture/`
 
 ## Development Tasks
 
