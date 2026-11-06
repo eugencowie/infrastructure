@@ -7,6 +7,7 @@ locals {
     portfolio = {
       description            = "My personal portfolio website."
       homepage_url           = "https://eugen.codes"
+      merge_method           = "squash"
       required_status_checks = ["validate"]
     }
 
