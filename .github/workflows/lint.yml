@@ -24,8 +24,6 @@ jobs:
 
       - name: Install tools
         uses: jdx/mise-action@v5.2.6
-        with:
-          install_args: terraform jactionlint shellcheck
 
       - name: Lint
-        run: mise run --skip-tools lint
+        run: mise run lint
