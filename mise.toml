@@ -5,17 +5,15 @@ terraform = "latest"
 
 [tasks.lint]
 description = "Lint workflows, scripts and repos configuration"
-depends = ["lint:*"]
+depends = ["repos:lint"]
+run = ["jactionlint", "shellcheck scripts/*.sh"]
 
-[tasks."lint:actions"]
-description = "Lint GitHub workflows"
-run = "jactionlint"
+[tasks."repos:init"]
+description = "Initialise repos state"
+dir = "repos"
+run = "terraform init"
 
-[tasks."lint:scripts"]
-description = "Lint shell scripts"
-run = "shellcheck scripts/*.sh"
-
-[tasks."lint:repos"]
+[tasks."repos:lint"]
 description = "Check repos formatting and validate its configuration"
 dir = "repos"
 run = [
@@ -23,11 +21,6 @@ run = [
   "terraform init -backend=false -input=false -lockfile=readonly",
   "terraform validate",
 ]
-
-[tasks."repos:init"]
-description = "Initialise repos state"
-dir = "repos"
-run = "terraform init"
 
 [tasks."repos:fmt"]
 description = "Format repos configuration"
@@ -48,4 +41,3 @@ run = "terraform apply"
 description = "Adopt an existing repo"
 dir = "repos"
 run = "../scripts/adopt-repo.sh"
-
