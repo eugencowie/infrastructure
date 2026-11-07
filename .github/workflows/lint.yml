@@ -23,7 +23,7 @@ jobs:
           persist-credentials: false
 
       - name: Install tools
-        uses: jdx/mise-action@v5.2.6
+        uses: jdx/mise-action@v5.2.7
 
       - name: Lint
         run: mise run lint
