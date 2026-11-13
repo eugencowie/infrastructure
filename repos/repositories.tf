@@ -21,6 +21,7 @@ locals {
     aptabase-rs = {
       description            = "Rust SDK for Aptabase: Open Source, Privacy-First and Simple Analytics for Mobile, Desktop and Web Apps"
       homepage_url           = "https://crates.io/crates/aptabase-rs"
+      merge_method           = "squash"
       required_status_checks = ["Check", "Check example"]
     }
   }
