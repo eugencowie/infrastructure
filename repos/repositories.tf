@@ -24,6 +24,13 @@ locals {
       merge_method           = "squash"
       required_status_checks = ["Check", "Check example"]
     }
+
+    git-vmr = {
+      description            = "Git CLI wrapper for interacting with multiple repositories as a single unified workspace."
+      homepage_url           = "https://eugencowie.github.io/git-vmr"
+      merge_method           = "squash"
+      required_status_checks = ["Check (macos-latest)", "Check (ubuntu-latest)", "Check (windows-latest)"]
+    }
   }
 
   merge_methods = { for name, repo in local.repositories : name => try(repo.merge_method, "merge") }
